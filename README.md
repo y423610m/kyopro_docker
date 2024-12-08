@@ -10,6 +10,7 @@ https://github.com/y423610m/kyopro_docker.git
 
 - setup
 ```
+cd kyopro_docker
 source setup.bash
 ```
 
