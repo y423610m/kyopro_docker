@@ -30,7 +30,8 @@ RUN apt install -y libeigen3-dev=3.4.0-4 && echo "export MY_EIGEN_LIB_ROOT=/usr/
 
 
 # atcoder cli
-RUN apt install -y npm && npm install -g atcoder-cli && acc config default-task-choice all
+RUN apt install -y npm 
+RUN npm install -g atcoder-cli && acc config default-task-choice all
 # acc login
 
 # oj-tool
@@ -40,6 +41,7 @@ RUN apt install -y python3-pip && python3 -m pip install online-judge-tools --br
 # my kyopro lib
 RUN cd ~/ && git clone https://github.com/y423610m/kyopro_library.git && cd kyopro_library && /usr/bin/bash setup.bash
 
-RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && git pull origin master
+# AtCoder repo
+RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && /usr/bin/bash setup.bash && git pull origin master
 
 CMD ["bash"]
