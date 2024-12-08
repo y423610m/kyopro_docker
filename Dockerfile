@@ -38,6 +38,8 @@ RUN apt install -y python3-pip && python3 -m pip install online-judge-tools --br
 # oj login https://atcoder.jp/
 
 # my kyopro lib
-RUN cd ~/ && cd ~/ &&  git clone https://github.com/y423610m/kyopro_library.git && cd kyopro_library && /usr/bin/bash setup.bash
+RUN cd ~/ && git clone https://github.com/y423610m/kyopro_library.git && cd kyopro_library && /usr/bin/bash setup.bash
+
+RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && git pull origin master
 
 CMD ["bash"]
