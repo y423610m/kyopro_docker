@@ -1,16 +1,19 @@
-function build_docker(){
-    docker build -t atcoder ${MY_KYOPRO_DOCKER_ROOT}
+export KYOPRO_DOCKER_IMAGE_NAME=atcoder
+export KYOPRO_DOCKER_CONTAINER_NAME=atcoder
+
+function kyopro_build_docker(){
+    docker build -t ${KYOPRO_DOCKER_IMAGE_NAME} ${MY_KYOPRO_DOCKER_ROOT}
 }
 
-function run_docker(){
-    docker run --rm --name atcoder -it atcoder
+function kyopro_run_docker(){
+    docker run --rm --name ${KYOPRO_DOCKER_CONTAINER_NAME} -it ${KYOPRO_DOCKER_IMAGE_NAME}
 }
 
-function exec_docker(){
-    docker exec -it atcoder bash
+function kyopro_exec_docker(){
+    docker exec -it ${KYOPRO_DOCKER_CONTAINER_NAME} bash
 }
 
-function rm_docker(){
+function kyopro_rm_docker(){
     containerid=$(docker ps | tail -n 1 | awk '{print $1}')
     docker kill ${containerid}
     containerid=$(docker ps -a | tail -n 1 | awk '{print $1}')
