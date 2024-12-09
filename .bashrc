@@ -13,6 +13,10 @@ function kyopro_exec_docker(){
     docker exec -it ${KYOPRO_DOCKER_CONTAINER_NAME} bash
 }
 
+function kyopro_commit_docker(){
+    docker commit ${KYOPRO_DOCKER_CONTAINER_NAME} ${KYOPRO_DOCKER_IMAGE_NAME}:latest
+}
+
 function kyopro_rm_docker(){
     containerid=$(docker ps | tail -n 1 | awk '{print $1}')
     docker kill ${containerid}
