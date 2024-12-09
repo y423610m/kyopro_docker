@@ -14,13 +14,14 @@ cd kyopro_docker
 source setup.bash
 ```
 
-- build (only first time)
+- build docker image (only first time)
 ```
-build_docker
+kyopro_build_docker
 ```
 
-- run, exec docker
+- run, exec, commit docker
 ```
-run_docker
-exec_docker
+kyopro_run_docker
+kyopro_exec_docker
+kyopro_commit_docker
 ```
