@@ -6,7 +6,7 @@ function kyopro_build_docker(){
 }
 
 function kyopro_run_docker(){
-    docker run --rm --name ${KYOPRO_DOCKER_CONTAINER_NAME} -it ${KYOPRO_DOCKER_IMAGE_NAME}
+    docker run -v ~/AtCoder:/root/AtCoder -v ~/kyopro_library:/root/kyopro_library --rm --name ${KYOPRO_DOCKER_CONTAINER_NAME} -it ${KYOPRO_DOCKER_IMAGE_NAME}
 }
 
 function kyopro_exec_docker(){

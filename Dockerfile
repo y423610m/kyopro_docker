@@ -1,5 +1,7 @@
 FROM ubuntu:24.04
 
+USER root
+
 RUN echo "# --- my scripts ---" >> ~/.bashrc && echo "cd ~/" >> ~/.bashrc
 
 RUN apt update && apt install -y software-properties-common less wget zip vim && \
@@ -40,10 +42,10 @@ RUN apt install -y python3-pip && python3 -m pip install online-judge-tools --br
 
 # my kyopro lib
 RUN cd ~/ && git clone https://github.com/y423610m/kyopro_library.git && cd kyopro_library && /usr/bin/bash setup/setup.bash && \
-mkdir -p ~/.vscode && cp setup/kyopro.code-snippets ~/.vscode
+mkdir -p ~/.vscode && cp setup/kyopro.code-snippets ~/.vscode && cd ~/ && rm -rf kyopro_library
 
 # AtCoder repo
-RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && /usr/bin/bash setup.bash && git pull origin master
+RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && /usr/bin/bash setup.bash && git pull origin master && cd ~/ && rm -rf AtCoder
 
 # optional
 RUN apt install -y gdb
