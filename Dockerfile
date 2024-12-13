@@ -45,4 +45,7 @@ mkdir -p ~/.vscode && cp setup/kyopro.code-snippets ~/.vscode
 # AtCoder repo
 RUN cd ~/ && git clone https://github.com/y423610m/AtCoder.git && cd AtCoder && /usr/bin/bash setup.bash && git pull origin master
 
+# optional
+RUN apt install -y gdb
+
 CMD ["bash"]
